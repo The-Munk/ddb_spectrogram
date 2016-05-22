@@ -35,7 +35,7 @@
 
 #define GRADIENT_TABLE_SIZE 2048
 #define FFT_SIZE 8192
-#define MAX_HEIGHT 4096
+#define MAX_HEIGHT 22000
 
 #define     CONFSTR_SP_LOG_SCALE              "spectrogram.log_scale"
 #define     CONFSTR_SP_REFRESH_INTERVAL       "spectrogram.refresh_interval"
