@@ -739,7 +739,11 @@ spectrogram_draw (GtkWidget *widget, cairo_t *cr, gpointer user_data) {
                 float v0 = x;
                 float v1 = w->data[w->log_index[i+j]];
                 if (v1 != 0) {
-                    v1 = 10 * log10f (v1);
+                    // Log Scale Frequency
+                    //v1 = 10 * log10f (v1);
+                    // Mel Scale Frequency
+                    v1 = 10 * ( 1127 * log10f ( 1 + ( v1 / 700 ) ) );
+                    // TODO: Add more frequency scale functions and options to select them
                 }
 
                 int k = 0;
@@ -872,7 +876,10 @@ w_spectrogram_init (ddb_gtkui_widget_t *w) {
         // Hanning
         //s->window[i] = (0.5 * (1 - cos (2 * M_PI * i/(FFT_SIZE-1))));
         // Blackman-Harris
-        s->window[i] = 0.35875 - 0.48829 * cos(2 * M_PI * i /(FFT_SIZE)) + 0.14128 * cos(4 * M_PI * i/(FFT_SIZE)) - 0.01168 * cos(6 * M_PI * i/(FFT_SIZE));;
+        //s->window[i] = 0.35875 - 0.48829 * cos(2 * M_PI * i /(FFT_SIZE)) + 0.14128 * cos(4 * M_PI * i/(FFT_SIZE)) - 0.01168 * cos(6 * M_PI * i/(FFT_SIZE));;
+        // Gaussian (a=0.45)
+         s->window[i] = exp(pow(-0.5 * ((i - (FFT_SIZE / 2) ) / ( 0.45 * (FFT_SIZE / 2))),2));
+         // TODO: Add more window functions and options to select them
     }
     create_gradient_table (s, CONFIG_GRADIENT_COLORS, CONFIG_NUM_COLORS);
     s->in = fftw_malloc (sizeof (double) * FFT_SIZE);
