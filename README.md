@@ -1,37 +1,18 @@
-[![Build Status](https://drone.io/github.com/cboxdoerfer/ddb_spectrogram/status.png)](https://drone.io/github.com/cboxdoerfer/ddb_spectrogram/latest)
+This Fork
+====================
+This project has been inactive for a very long time. I didn't make it, I just forked it and hacked it. That's what this page you're on is - a hack of a seemingly abandoned project. I've changed some deeper things not exposed by basic settings. I may continue to change more.
 
+
+====================
 Spectrogram plugin for DeaDBeeF audio player
 ====================
 
-## Installation
 
-### Arch Linux
-See the [AUR](https://aur.archlinux.org/packages/deadbeef-plugin-spectrogram-git/)
+## Building / Installation
 
-### Gentoo
-See ebuilds [here](https://github.com/megabaks/stuff/tree/master/media-plugins/deadbeef-spectrogram)
+I don't know the deps for your system, but it's pretty lgiht.
+You can figure it out. I believe in you.
 
-### Binaries
-
-#### Dev
-[x86_64](https://drone.io/github.com/cboxdoerfer/ddb_spectrogram/files/deadbeef-plugin-builder/ddb_spectrogram_x86_64.tar.gz)
-
-[i686](https://drone.io/github.com/cboxdoerfer/ddb_spectrogram/files/deadbeef-plugin-builder/ddb_spectrogram_i686.tar.gz)
-
-Install them as follows:
-
-x86_64: ```tar -xvf ddb_spectrogram_x86_64.tar.gz -C ~/.local/lib/deadbeef```
-
-i686: ```tar -xvf ddb_spectrogram_i686.tar.gz -C ~/.local/lib/deadbeef```
-
-### Other distributions
-#### Build from sources
-First install DeaDBeeF (>=0.6) and fftw3
-```bash
-make
-./userinstall.sh
-```
-
-## Screenshot
-
-![](http://i.imgur.com/UTEVqr3.png)
+run `make` to build
+run `./userinstall.sh` to install
+run `./userremove.sh` to remove
