@@ -28,7 +28,7 @@ GTK3_LIBS?=`pkg-config --libs gtk+-3.0`
 FFTW_LIBS?=-lfftw3
 
 CC?=gcc
-CFLAGS+=-Wall -g -fPIC -std=c99 -D_GNU_SOURCE
+CFLAGS+=-g -fPIC -std=c99 -D_GNU_SOURCE -Wno-deprecated-declarations -Wno-incompatible-pointer-types
 LDFLAGS+=-shared
 
 GTK2_DIR?=gtk2
